@@ -1,0 +1,22 @@
+ input{
+  margin-left: 35%;
+  background-color: aqua;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 5px;
+}
+#inputBox  img{
+  width: 100%;
+  height: 100px;
+}
+#inputBox h1{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.subHeading{
+  text-align: center;
+  background-color: red;
+  border-radius: 40px;
+  border: 2px solid;
+}
