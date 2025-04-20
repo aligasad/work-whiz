@@ -1,29 +1,74 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import asadImg from "../assets/asadpic.jpg"; // <-- this is important
+import Img from "../assets/main.jpg"; // <-- this is important
+
+
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
-  return (
-    <div className="flex flex-wrap justify-center items-center gap-8 h-screen" id="About">
-      <div className="h-83 w-62 p-6" id="profileCard">
-        <div className="p1"></div>
-        <div className="p2"></div>
-        <div className="p3"></div>
-        <div className="flex justify-center">
-          <img src={asadImg} alt="Asad Alam" className="rounded-full w-40 h-40 object-cover" />
-        </div>
-        <h1 className="text-2xl font-bold text-center mt-2.5">Asad Alam</h1>
-        <ul className="text-center mt-2">
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Java</li>
-          <li>
-            <Link to="http://asadalam.info/">Visit</Link>
-          </li>
-        </ul>
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [msg, setMsg] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleInput = (event) =>{
+      const value = event.target.value;
+      const name = event.target.name;
+      if("email" == name){
+          setEmail(value)
+      }
+      if("password" == name){
+          setPassword(value)
+      }
+  }
+
+  const handleSubmit = (event) =>{
+      event.preventDefault();
+
+      if(email == "" || password == ""){
+          alert("Please Enter Details!")
+      }else{
+          let getDetials = JSON.parse(localStorage.getItem("user"))
+        console.log(getDetials);
+      getDetials.map((curValue)=>{
+          console.log(curValue.password);
+          let storeEmail = curValue.email;
+          let storePassword = curValue.password;
+
+          if(storeEmail == email && storePassword == password){
+              alert("Login Successfully !")
+              navigate("/home")
+
+          }else{
+              return setMsg("Invalid Email or Password!")
+          }
+          
+      })
+      }
+      
+      
+  }
+return (
+  <div>
+      <div id="Signup">
+      <p className='errMsg'>{msg}</p>
+      <form onSubmit={handleSubmit} className='login-form'>
+              <div className='heading'>
+                  <p>Log In</p>
+              </div>
+              <div className='account'>
+               <input type='text' name='email' placeholder='Enter your Email' onChange={handleInput}/>
+               <input type='password' name='password' placeholder='Enter your Password' onChange={handleInput}/>
+               <p>If you have to create account ? <Link to={"/signup"}>Signup</Link></p>
+              </div>
+              <button>Log In</button>
+          </form>
       </div>
-    </div>
-  );
+  </div>
+)
 }
+
 
 export default Login;
