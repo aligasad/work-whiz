@@ -63,16 +63,19 @@ function Header() {
       {/* Mobile Menu */}
       {menuOpen && (
         <ul className="lg:hidden mt-4 space-y-3 text-end ">
-          <li>
+          <li >
             <Link to="/" onClick={toggleMenu} className="block text-white text-lg">Home</Link>
           </li>
           <li>
             <Link to="/chart" onClick={toggleMenu} className="block text-white text-lg">Dashboard</Link>
           </li>
           <li>
+            <Link to="/register" onClick={toggleMenu} className="block text-white text-lg">Register</Link>
+          </li>
+          <li>
             <Link to="/about" onClick={toggleMenu} className="block text-white text-lg">About</Link>
           </li>
-          <li className="flex justify-center items-center gap-1 text-white text-lg cursor-pointer" onClick={() => { logout(); toggleMenu(); }}>
+          <li className="flex justify-center items-center gap-1 text-[#FFE4B5] font-bold text-lg hover:text-blue-400 transition-all duration-300 cursor-pointer" onClick={() => { logout(); toggleMenu(); }}>
             <BsFillPersonFill className="text-2xl" />
             {username}
           </li>

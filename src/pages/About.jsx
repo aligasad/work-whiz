@@ -65,10 +65,10 @@ function About() {
 
       <div
         id="profileCard"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 max-w-7xl mx-auto"
+        className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-4 max-w-7xl mx-auto"
       >
         {members.map((member, index) => (
-          <div className="bg-white rounded-xl p-4 text-center shadow relative">
+          <div key={index} className="bg-white rounded-xl p-4 text-center shadow relative">
             {/* Profile Image */}
             <img
               src={
