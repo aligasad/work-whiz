@@ -50,9 +50,9 @@ function Header() {
           <li>
             <Link to="/about" className="text-white text-lg hover:underline">About</Link>
           </li>
-          <li className="flex items-center gap-1 text-white text-lg cursor-pointer" onClick={logout}>
+          <li className="flex items-center gap-1 text-[#FFE4B5] font-bold text-lg hover:text-blue-400 transition-all duration-300 cursor-pointer" onClick={logout}>
             <BsFillPersonFill className="text-2xl" title="Your Account" />
-            {username[0]}
+            {username}
           </li>
         </ul>
       </div>
