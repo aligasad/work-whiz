@@ -17,11 +17,11 @@ function App() {
       children: [
         {
           index: true,
-          element: <Login />,
+          element: <Signup />,
         },
         {
-          path: "signup",
-          element: <Signup />,
+          path: "login",
+          element: <Login />,
         },
       ],
     },

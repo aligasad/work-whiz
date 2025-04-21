@@ -101,7 +101,7 @@ function Login() {
         {/* Signup Redirect */}
         <p className="text-sm text-gray-600 mt-4 text-center">
           Don’t have an account?{" "}
-          <Link to="/auth/signup" className="text-blue-600 hover:underline">
+          <Link to="/auth" className="text-blue-600 hover:underline">
             Sign up here
           </Link>
         </p>

@@ -32,7 +32,11 @@ const RegisterWorker = () => {
       ...formData,
     };
 
-    const updatedWorkers = [...workers, newWorker];
+    const existingData = workers.find((obj)=>{
+      return workers.concat !== newWorker.contact
+    })
+    if(!existingData){
+      const updatedWorkers = [...workers, newWorker];
     localStorage.setItem("workers", JSON.stringify(updatedWorkers));
     setWorkers(updatedWorkers);
     setFormData({
@@ -43,6 +47,9 @@ const RegisterWorker = () => {
       city: "",
       profilePicture: "",
     });
+    } else{
+      alert("You have already registered");
+    }
   };
 
   return (

@@ -16,8 +16,8 @@ function Signup() {
   const navigate = useNavigate();
 
   const handleInput = (event) =>{
-    console.log(event.target.value);
-    console.log(event.target.name);
+    // console.log(event.target.value);
+    // console.log(event.target.name);
     const name = event.target.name;
     const value = event.target.value;
 
@@ -34,11 +34,22 @@ function Signup() {
 
     let arr = [];
     arr = [...getData];
-    arr.push(data)
-    localStorage.setItem("user", JSON.stringify(arr));
-    localStorage.setItem("logedin", JSON.stringify(arr[0]));
-    alert("Signup Successfully !");
-    navigate("/auth")
+    
+    const existingData = arr.find((item)=>{
+      return item.email === data.email;
+    })
+
+    if(existingData){
+      alert("You have already Singed Up");
+    }
+    else{
+      arr.push(data)
+      localStorage.setItem("user", JSON.stringify(arr));
+      // localStorage.setItem("logedin", JSON.stringify(arr));
+      alert("Signup Successfully !");
+      navigate("/auth/login")
+    }
+    
 
     }
     
@@ -174,7 +185,7 @@ function Signup() {
 
           <p className="text-sm text-gray-600">
             Already have an account?{" "}
-            <Link to="/auth" className="text-blue-600 hover:underline">
+            <Link to="/auth/login" className="text-blue-600 hover:underline">
               Login here
             </Link>
           </p>
