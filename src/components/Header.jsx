@@ -31,7 +31,7 @@ function Header() {
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2 text-white font-bold text-xl sm:text-2xl">
           <GrUserWorker className="text-3xl" />
-          WorkViz
+          WorkWhiz
         </Link>
 
         {/* Mobile menu button */}
