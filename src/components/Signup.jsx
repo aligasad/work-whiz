@@ -28,42 +28,187 @@ function Signup() {
     event.preventDefault();
     if(data.name == "" || data.email == "" || data.password == ""){
       alert("Please Enter Detail!")
-    }else{
+    }
+    else{
     const getData = JSON.parse(localStorage.getItem("user") || "[]");
+
     let arr = [];
     arr = [...getData];
     arr.push(data)
     localStorage.setItem("user", JSON.stringify(arr));
-    alert("Signup Successfullu !");
-    navigate("/login")
+    localStorage.setItem("logedin", JSON.stringify(arr[0]));
+    alert("Signup Successfully !");
+    navigate("/auth")
 
     }
     
   }
   
   return (
-    <div id="Signup">
-        <div className='main-page'>
-            <form onSubmit={handleSubmit}>
-                <div className='heading'>
-                    <p>Sign Up</p>
-                </div>
-                <div className='account'>
-                 <input type='text' name='name' placeholder='Enter your Name' onChange={handleInput}/>
-                 <input type='email' name='email' placeholder='Enter your Email' onChange={handleInput}/>
-                 <input type='password' name='password' placeholder='Enter your Password' onChange={handleInput}/>
-                 <p>Already have an account ? <a href='/login'>Login</a></p>
-                </div>
-                <button>SignUp</button>
-            </form>
-            <div>
-            <img src={Img} alt='image'/>
-            </div>
+    // <div >
+    //     <div className='main-page'>
+    //         <form onSubmit={handleSubmit}>
+    //             <div className='heading'>
+    //                 <p>Sign Up</p>
+    //             </div>
+    //             <div className='account'>
+    //              <input type='text' name='name' placeholder='Enter your Name' onChange={handleInput}/>
+    //              <input type='email' name='email' placeholder='Enter your Email' onChange={handleInput}/>
+    //              <input type='password' name='password' placeholder='Enter your Password' onChange={handleInput}/>
+    //              <p>Already have an account ? <Link to={"/login"}>Login</Link></p>
+    //             </div>
+    //             <button>SignUp</button>
+    //         </form>
+    //         <div>
+    //         <img src={Img} alt='image'/>
+    //         </div>
 
  
+    //     </div>
+    // </div>
+
+
+    // <div className="min-h-screen flex flex-col md:flex-row items-center justify-center p-4">
+    //   {/* Form Section */}
+    //   <div className="w-full md:w-1/2 max-w-md bg-white p-8 rounded-2xl shadow-xl">
+    //     <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
+    //     <form onSubmit={handleSubmit} className="space-y-4">
+    //       <input
+    //         type="text"
+    //         name="name"
+    //         placeholder="Enter your Name"
+    //         onChange={handleInput}
+    //         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    //       />
+    //       <input
+    //         type="email"
+    //         name="email"
+    //         placeholder="Enter your Email"
+    //         onChange={handleInput}
+    //         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    //       />
+    //       <input
+    //         type="password"
+    //         name="password"
+    //         placeholder="Enter your Password"
+    //         onChange={handleInput}
+    //         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    //       />
+    //       <p className="text-sm text-gray-600">
+    //         Already have an account?{" "}
+    //         <Link to="/auth" className="text-blue-500 hover:underline">
+    //           Login
+    //         </Link>
+    //       </p>
+    //       <button
+    //         type="submit"
+    //         className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+    //       >
+    //         Sign Up
+    //       </button>
+    //     </form>
+    //   </div>
+
+    //   {/* Image Section */}
+    //   <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
+    //     <img
+    //       src={Img}
+    //       alt="Sign Up Illustration"
+    //       className="w-full max-w-sm object-contain "
+    //     />
+    //   </div>
+    // </div>
+
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 to-blue-200 p-4">
+      {/* Head Tags - If embedding in a full HTML document */}
+      <title>WorkWhiz | Sign Up</title>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+        name="description"
+        content="Create your WorkWhiz account to streamline your workflow."
+      />
+
+      {/* Form Section */}
+      <div className="w-full md:w-1/2 max-w-md bg-white p-8 rounded-2xl shadow-2xl">
+        {/* Brand */}
+        <div className="text-center mb-6">
+          <h1 className="text-4xl font-extrabold text-blue-700 tracking-wider">
+            <span className="text-gray-800">Work</span>
+            <span className="text-blue-600">Whiz</span>
+          </h1>
+          <p className="text-sm text-gray-500 mt-1">Join us to power up your productivity.</p>
         </div>
+
+        
+
+        {/* Heading */}
+        <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your Name"
+            onChange={handleInput}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your Email"
+            onChange={handleInput}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your Password"
+            onChange={handleInput}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <p className="text-sm text-gray-600">
+            Already have an account?{" "}
+            <Link to="/auth" className="text-blue-600 hover:underline">
+              Login here
+            </Link>
+          </p>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+
+      <div className="grid place-items-center gap-3">
+        {/* Intro Description */}
+        <div className="text-center mb-6 w-full md:w-1/2">
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Find Workers Near You Instantly</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            WorkWhiz connects you with local workers when you need them, where you need them.
+            Whether it's a short-term task or an urgent need, we make hiring effortless and fast.
+          </p>
+        </div>
+
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
+        <img
+          src={Img}
+          alt="Sign Up Illustration"
+          className="w-full max-w-sm object-contain rounded-xl shadow-md"
+        />
+      </div>
+      </div>
     </div>
   )
 }
 
-export default Signup;
+export default Signup;  

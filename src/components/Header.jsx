@@ -1,21 +1,81 @@
 import { GrUserWorker } from "react-icons/gr";
 import { BsFillPersonFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Header() {
-  return (
-    <header className="h-18  w-full flex justify-between items-center lg: px-10  bg-rose-400 ">
-      <h1 className="text-1xl ml-2 sm:text-2xl lg:text-3xl  font-bold flex gap-2"><GrUserWorker className="text-3xl text-amber-800" /> WorkViz</h1>
-      <ul className="flex items-center">
-        <li className="mr-4 cursor-pointer text-xl text-white font-bold"><Link to={"/"}>Home</Link></li>
-        <li className="mr-4 cursor-pointer text-xl text-white font-bold"><Link to={"/about"}>About</Link></li>
-        
-        <li className="mr-4 cursor-pointer ">
-          <Link to={"/login"}><BsFillPersonFill title="Your Account" className="text-3xl" /></Link>
-        </li>
-      </ul>
-    </header>
+  const name = JSON.parse(localStorage.getItem("logedin")); // corrected key name
+  
+  const [username, setUsername] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setUsername(name);
+  }, [name]);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("logedin");
+    navigate("/auth");
+  };
+
+  return (
+    <header className="bg-rose-800 px-4 py-3 shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <Link to={"/"} className="flex items-center gap-2 text-white font-bold text-xl sm:text-2xl">
+          <GrUserWorker className="text-3xl" />
+          WorkViz
+        </Link>
+
+        {/* Mobile menu button */}
+        <button onClick={toggleMenu} className="text-white text-3xl lg:hidden focus:outline-none">
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </button>
+
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex items-center gap-6">
+          <li>
+            <Link to="/" className="text-white text-lg hover:underline">Home</Link>
+          </li>
+          <li>
+            <Link to="/chart" className="text-white text-lg hover:underline">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/about" className="text-white text-lg hover:underline">About</Link>
+          </li>
+          <li className="flex items-center gap-1 text-white text-lg cursor-pointer" onClick={logout}>
+            <BsFillPersonFill className="text-2xl" title="Your Account" />
+            {username[0]}
+          </li>
+        </ul>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <ul className="lg:hidden mt-4 space-y-3 text-end ">
+          <li>
+            <Link to="/" onClick={toggleMenu} className="block text-white text-lg">Home</Link>
+          </li>
+          <li>
+            <Link to="/chart" onClick={toggleMenu} className="block text-white text-lg">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={toggleMenu} className="block text-white text-lg">About</Link>
+          </li>
+          <li className="flex justify-center items-center gap-1 text-white text-lg cursor-pointer" onClick={() => { logout(); toggleMenu(); }}>
+            <BsFillPersonFill className="text-2xl" />
+            {username}
+          </li>
+        </ul>
+      )}
+    </header>
   );
 }
 
