@@ -26,7 +26,7 @@ function Header() {
   };
 
   return (
-    <header className="bg-rose-800 px-4 py-3 shadow-md">
+    <header className="bg-[#0D1B1E] px-4 py-5 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2 text-white font-bold text-xl sm:text-2xl">
@@ -46,6 +46,9 @@ function Header() {
           </li>
           <li>
             <Link to="/chart" className="text-white text-lg hover:underline">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/register" className="text-white text-lg hover:underline">Register</Link>
           </li>
           <li>
             <Link to="/about" className="text-white text-lg hover:underline">About</Link>

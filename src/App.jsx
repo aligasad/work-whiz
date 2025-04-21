@@ -7,6 +7,7 @@ import Login from "./pages/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import Chartpage from "./components/Chartpage.jsx";
 import Auth from './pages/Auth.jsx';
+import RegisterWorker from './pages/Register.jsx';
 
 function App() {
   const router = createBrowserRouter([
@@ -32,13 +33,18 @@ function App() {
           index: true,
           element: <Home />,
         },
+        
+        {
+          path: "/register",
+          element: <RegisterWorker />,
+        },
+        {
+          path: "/chart",
+          element: <Chartpage />,
+        },
         {
           path: "/about",
           element: <About />,
-        },
-        {
-          path: "chart",
-          element: <Chartpage />,
         },
       ],
     },
