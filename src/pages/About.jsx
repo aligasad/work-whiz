@@ -59,8 +59,8 @@ function About() {
 
   return (
     <section className="bg-gradient-to-br from-white to-blue-200 w-full px-4 py-10 bg-gray-100">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 mt-16 text-blue-700">
-        Team Members
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 mt-16 text-blue-700 tracking-[-2px]">
+        Team <span className="ml-2 text-rose-600 ">Members</span>
       </h1>
 
       <div
