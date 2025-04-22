@@ -28,7 +28,8 @@ function Header() {
   };
 
   return (
-    <header className="bg-[#0D1B1E] px-4 py-5 shadow-md">
+    <header className="bg-[#0D1B1E] px-4 py-5 shadow-md fixed w-full z-10 ">
+      
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link

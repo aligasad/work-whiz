@@ -43,7 +43,7 @@ const options = {
 const ChartPage = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-center">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-center mt-16">
         WorkWhiz Dashboard
       </h1>
       <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg">

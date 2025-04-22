@@ -53,8 +53,8 @@ const RegisterWorker = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Register to be a part of the WorkWhiz world.</h2>
+    <div className="max-w-xl mx-auto p-6 ">
+      <h2 className="text-2xl font-bold mb-4 mt-16">Register to be a part of the WorkWhiz world.</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {["name", "role", "contact", "area", "city", "profilePicture"].map((field) => (
           <input

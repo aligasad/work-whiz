@@ -34,7 +34,7 @@ function Home() {
     <section className="bg-gradient-to-br from-blue-50 to-white min-h-screen py-10 px-4 sm:px-6 lg:px-8" id="HomePage">
       <div className="max-w-5xl mx-auto">
         {/* Chart Button */}
-        <div className="fixed bottom-6 right-6">
+        <div className="fixed bottom-6 left-6">
           <Link to="/chart">
             <button className="bg-blue-600 text-white px-4 py-2 rounded-2xl shadow hover:bg-blue-700 transition-all duration-300">
               📊 Show Chart
@@ -43,7 +43,7 @@ function Home() {
         </div>
 
         {/* Header */}
-        <h1 className="text-center text-4xl font-extrabold text-blue-800 mb-10">
+        <h1 className="text-center text-4xl font-extrabold text-blue-800 mb-10 mt-16">
           Find a <span className=" text-[#DC143C] ">Craftsman</span> Near You
         </h1>
 
