@@ -24,7 +24,7 @@ function About() {
       title: "Computer Science Engineer",
       img: "https://images.pexels.com/photos/1698730/pexels-photo-1698730.jpeg?auto=compress&cs=tinysrgb&w=600",
       link: "http://asadalam.info/",
-      mail: "asadalam@gmail.com",
+      mail: "arshiyaakram@gmail.com",
       socials: {
         github: "https://github.com/arshiyaakram",
         linkedin: "https://linkedin.com/in/arshiyaakram",
@@ -36,7 +36,7 @@ function About() {
       title: "Computer Science Engineer",
       img: "https://randomuser.me/api/portraits/men/50.jpg",
       link: "http://asadalam.info/",
-      mail: "asadalam@gmail.com",
+      mail: "amirsohail@gmail.com",
       socials: {
         github: "https://github.com/amirsohail",
         linkedin: "https://linkedin.com/in/amirsohail",
@@ -48,7 +48,7 @@ function About() {
       title: "Computer Science Engineer",
       img: "https://randomuser.me/api/portraits/women/50.jpg",
       link: "http://asadalam.info/",
-      mail: "asadalam@gmail.com",
+      mail: "adibaanwar@gmail.com",
       socials: {
         github: "https://github.com/adibaanwar",
         linkedin: "https://linkedin.com/in/adibaanwar",
@@ -89,11 +89,11 @@ function About() {
             {/* Description */}
             <p className="text-xs text-gray-700 mb-4 leading-snug">
               {member.description ||
-                "If you like my work, consider supporting me on PayPal and help me make a dream come true."}
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis eius magni repellendus fugiat nihil minima, ab,"}
             </p>
 
             {/* Stats */}
-            <div className="flex justify-between text-xs text-gray-700 font-medium mb-4">
+            <div className="flex justify-evenly text-xs text-gray-700 font-medium mb-4">
               <div className="text-center">
                 <p className="text-sm text-black font-bold">JavaScript</p>
                 <p className="text-[11px] text-gray-500">Intermediate</p>

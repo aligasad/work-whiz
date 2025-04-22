@@ -9,6 +9,7 @@ import {
 import { GrUserWorker } from "react-icons/gr";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import logo from '../assets/logo1.svg'
 
 function Footer() {
   return (
@@ -16,7 +17,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
         {/* Left Section */}
         <div className="text-center md:text-left max-w-md">
-          <h2 className="text-4xl font-bold text-white mb-4 flex items-end gap-2  "> <GrUserWorker className="text-rose-500 text-5xl "  /> Get in Touch</h2>
+          <h2 className="text-4xl font-bold text-white mb-4 flex items-baseline gap-2  "> <img src={logo} className=" h-[3rem] mr-1 " alt="" /> Get in Touch</h2>
           <p className="text-gray-400 mb-2">
           WorkWhiz connects you with local workers when you need them, where you need them. 
           </p>

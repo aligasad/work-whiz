@@ -4,6 +4,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import logo from '../assets/logo1.svg'
 
 function Header() {
   const name = JSON.parse(localStorage.getItem("logedin"));
@@ -37,7 +38,8 @@ function Header() {
           className="flex items-center gap-2 text-white font-bold text-xl sm:text-2xl"
         >
           <p className="flex items-baseline-last gap-2">
-            <GrUserWorker className="text-3xl text-rose-500" />
+            {/* <GrUserWorker className="text-3xl text-rose-500" /> */}
+            <img src={logo} className=" h-[2.2rem] " alt="" />
             WorkWhiz
           </p>
         </Link>
