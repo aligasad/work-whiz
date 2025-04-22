@@ -4,6 +4,13 @@ import Card from "../components/Card";
 import Pills from "../components/Pills";
 import { Link } from "react-router-dom";
 
+// IMPORTING GOOGLE FONTS--------------------
+// import "@fontsource/space-grotesk/300.css";
+// import "@fontsource/space-grotesk/400.css";
+// import "@fontsource/space-grotesk/700.css";
+// import "@fontsource/poppins";
+import '@fontsource/yuji-boku';
+
 function Home() {
   const [city, setCity] = useState("");
   const [area, setArea] = useState("");

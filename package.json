@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.2.5",
+    "@fontsource/space-grotesk": "^5.2.6",
+    "@fontsource/yuji-boku": "^5.2.5",
     "@tailwindcss/vite": "^4.1.4",
     "chart.js": "^4.4.9",
     "react": "^19.0.0",
