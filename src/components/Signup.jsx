@@ -9,6 +9,7 @@ function Signup() {
   const userDetail = {
     name: "",
     email: "",
+    username: "",
     password: "",
   };
   const [data, setData] = useState(userDetail);
@@ -20,15 +21,16 @@ function Signup() {
     // console.log(event.target.name);
     const name = event.target.name;
     const value = event.target.value;
-
     setData({ ...data, [name]: value });
+    
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (data.name == "" || data.email == "" || data.password == "") {
+    if (data.name == "" || data.email == "" || data.username == "" || data.password == "") {
       alert("Please Enter Detail!");
-    } else {
+    } 
+    else {
       const getData = JSON.parse(localStorage.getItem("user") || "[]");
 
       let arr = [];
@@ -37,11 +39,18 @@ function Signup() {
       const existingData = arr.find((item) => {
         return item.email === data.email;
       });
+      const existingUsername = arr.find((item) => {
+        return item.username === data.username;
+      });
 
       if (existingData) {
         alert("You have already Singed Up");
         navigate("/auth/login")
-      } else {
+      }
+      else if(existingUsername){
+        alert("This username have already registered, Please change it !")
+      }
+      else {
         arr.push(data);
         localStorage.setItem("user", JSON.stringify(arr));
         // localStorage.setItem("logedin", JSON.stringify(arr));
@@ -83,6 +92,14 @@ function Signup() {
             type="email"
             name="email"
             placeholder="Enter your Email"
+            onChange={handleInput}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter username"
             onChange={handleInput}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

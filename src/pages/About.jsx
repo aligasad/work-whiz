@@ -58,14 +58,14 @@ function About() {
   ];
 
   return (
-    <section className="w-full px-4 py-10 bg-gray-100">
+    <section className="bg-gradient-to-br from-white to-blue-200 w-full px-4 py-10 bg-gray-100">
       <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 mt-16 text-blue-700">
         Team Members
       </h1>
 
       <div
         id="profileCard"
-        className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-4 max-w-7xl mx-auto"
+        className=" grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-4 max-w-7xl mx-auto"
       >
         {members.map((member, index) => (
           <div key={index} className="bg-white rounded-xl p-4 text-center shadow relative">

@@ -7,7 +7,7 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import logo from '../assets/logo1.svg'
 
 function Header() {
-  const name = JSON.parse(localStorage.getItem("logedin"));
+  
 
   const [username, setUsername] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,8 +15,9 @@ function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const name = JSON.parse(localStorage.getItem("logedin"));
     setUsername(name);
-  }, [name]);
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

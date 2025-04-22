@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
 
@@ -16,8 +16,8 @@ function Login() {
   const handleInput = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-    if ("email" == name) {
-      setEmail(value);
+    if ("username" == name) {
+      setUsername(value);
     }
     if ("password" == name) {
       setPassword(value);
@@ -27,13 +27,14 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    if (email === "" || password === "") {
+    if (username === "" || password === "") {
       alert("Please Enter Details!");
-    } else {
+    } 
+    else {
       const getDetails = JSON.parse(localStorage.getItem("user")) || [];
   
       const foundUser = getDetails.find(
-        (user) => user.email === email && user.password === password
+        (user) => user.username === username && user.password === password
       );
   
       if (foundUser) {
@@ -75,9 +76,9 @@ function Login() {
         {/* Login Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
-            type="email"
-            name="email"
-            placeholder="Enter your Email"
+            type="text"
+            name="username"
+            placeholder="Enter your username"
             onChange={handleInput}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

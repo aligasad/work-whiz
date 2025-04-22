@@ -31,7 +31,7 @@ function Home() {
   useEffect(() => filterdata(), [city, area, currentRole]);
 
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-white min-h-screen py-10 px-4 sm:px-6 lg:px-8" id="HomePage">
+    <section className="bg-gradient-to-br from-white to-blue-200 min-h-screen py-10 px-4 sm:px-6 lg:px-8" id="HomePage">
       <div className="max-w-5xl mx-auto">
         {/* Chart Button */}
         <div className="fixed bottom-6 right-6">
