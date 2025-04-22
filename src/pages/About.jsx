@@ -14,8 +14,8 @@ function About() {
       mail: "asadalam4291@gmail.com",
       description: "I design and develop experiences that make people's lives simpler through Web and Mobile apps. ",
       socials: {
-        github: "https://github.com/asadalam",
-        linkedin: "https://linkedin.com/in/asadalam",
+        github: "https://github.com/aligasad",
+        linkedin: "https://www.linkedin.com/in/asadalamalig/",
         twitter: "https://twitter.com/asadalam",
       },
     },
@@ -59,7 +59,7 @@ function About() {
 
   return (
     <section className="w-full px-4 py-10 bg-gray-100">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 text-rose-800">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 text-blue-700">
         Team Members
       </h1>
 
@@ -75,11 +75,11 @@ function About() {
                 member.img || "https://randomuser.me/api/portraits/women/44.jpg"
               }
               alt={member.name || "User"}
-              className="w-20 h-20 rounded-full mx-auto border-4 border-white shadow-md -mt-12 mb-2"
+              className="w-20 h-20 rounded-full mx-auto border-4 border-rose-800 shadow-md -mt-12 mb-2"
             />
 
             {/* Name and Username */}
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-bold text-rose-800">
               {member.name || "Mae Shaw"}
             </h2>
             <p className="text-xs text-gray-600 mb-2">
@@ -110,7 +110,7 @@ function About() {
 
             {/* Buttons */}
             <div className="flex gap-2 justify-center mb-4">
-              <Link to={"https://github.com/aligasad"}>
+              <Link to={"https://www.instagram.com/wanderlust__026"}>
                 <button className="bg-rose-800 text-white px-4 py-1.5 text-sm rounded-md hover:bg-gray-800">
                   Follow
                 </button>
@@ -119,38 +119,31 @@ function About() {
 
             {/* Social Media Icons */}
             <div className="flex justify-center gap-4 text-gray-600">
-              <a
-                href={member.socials?.github || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-black"
+              <Link
+              to={member.socials?.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black"
               >
                 <FaGithub size={18} />
-              </a>
-              <a
-                href={member.socials?.linkedin || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-700"
+              </Link>
+              <Link
+              to={member.socials?.linkedin || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-700"
               >
                 <FaLinkedin size={18} />
-              </a>
-              <a
-                href={member.socials?.twitter || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-500"
+              </Link>
+              <Link
+              to={member.socials?.twitter || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500"
               >
                 <FaTwitter size={18} />
-              </a>
-              <a
-                href={member.socials?.instagram || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-500"
-              >
-                <FaInstagram size={18} />
-              </a>
+              </Link>
+              
             </div>
           </div>
         ))}

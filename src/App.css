@@ -1,28 +1,7 @@
 @import "tailwindcss";
 
 
-@keyframes move {
-  0%   { 
-    transform: scale(1);
-    background-color: #018458;
-  }
-  25%  { 
-    transform: scale(1.1);
-    background-color: #102E50;
-  }
-  50%  { 
-    transform: scale(1.2); 
-    background-color: #DC143C;
-  }
-  75%  { 
-    transform: scale(1.1); 
-    background-color: #e6c1b3;
-  }
-  100% { 
-    transform: scale(1);
-    background-color: #FF7F50;
-  }
-}
+
 #HomePage{
   /* background-image: url("https://static.vecteezy.com/system/resources/previews/013/976/430/original/teamwork-concept-group-of-people-climbing-a-mountain-company-employees-working-together-mutual-achievement-of-the-goal-team-building-people-helping-and-supporting-each-other-at-work-vector.jpg");
   background-size: cover;
@@ -39,7 +18,7 @@
   }
 
   select{
-    padding: 7px 10px;
+    padding: 0.5rem 10px;
     outline: none;
     border: none;
     background-color: #DC143C;
@@ -47,24 +26,6 @@
     box-shadow: inset 0 0 5px #000, 0px 0px 5px #000;
   }
 
-  #pillsBox{
-    margin-bottom: 1rem;
-    padding: 1rem 0;
-
-    #pills{
-      border: 2px solid #000;
-      padding: 5px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bolder;
-
-    }
-    #pills:hover{
-      background-color: #DC143C;
-      color: white;
-      transition: 0.5s;
-    }
-  }
 
   
 }

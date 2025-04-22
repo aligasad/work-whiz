@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
-
 function Header() {
   const name = JSON.parse(localStorage.getItem("logedin"));
 
@@ -24,6 +23,7 @@ function Header() {
 
   const logout = () => {
     localStorage.removeItem("logedin");
+    localStorage.removeItem("workers");
     navigate("/auth/login");
   };
 
@@ -35,8 +35,10 @@ function Header() {
           to={"/"}
           className="flex items-center gap-2 text-white font-bold text-xl sm:text-2xl"
         >
-          <GrUserWorker className="text-3xl" />
-          WorkWhiz
+          <p className="flex items-baseline-last gap-2">
+            <GrUserWorker className="text-3xl text-rose-500" />
+            WorkWhiz
+          </p>
         </Link>
 
         {/* Mobile menu button */}
@@ -71,11 +73,12 @@ function Header() {
             </Link>
           </li>
           <li
-            className="flex items-center gap-1 text-[#FFE4B5] font-bold text-lg hover:text-blue-400 transition-all duration-300 cursor-pointer"
+            className="flex items-center gap-1 text-[#e2dbd1] font-bold text-lg hover:text-rose-600 transition-all duration-300 cursor-pointer"
             onClick={logout}
           >
-            <RiLogoutBoxRLine className="text-2xl" title="Your Account" />
             {username}
+            <RiLogoutBoxRLine className="text-2xl text-rose-600 " title="Your Account" />
+            
           </li>
         </ul>
       </div>
@@ -121,14 +124,14 @@ function Header() {
             </Link>
           </li>
           <li
-            className="flex justify-center items-center gap-1 text-[#FFE4B5] font-bold text-lg hover:text-blue-400 transition-all duration-300 cursor-pointer"
+            className="flex justify-end items-center gap-1 text-[#e1dbd1] font-bold text-lg hover:text-rose-600 transition-all duration-300 cursor-pointer"
             onClick={() => {
               logout();
               toggleMenu();
             }}
           >
-            <RiLogoutBoxRLine className="text-2xl" />
             {username}
+            <RiLogoutBoxRLine className="text-2xl text-rose-600" />
           </li>
         </ul>
       )}

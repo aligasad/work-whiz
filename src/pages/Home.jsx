@@ -34,9 +34,9 @@ function Home() {
     <section className="bg-gradient-to-br from-blue-50 to-white min-h-screen py-10 px-4 sm:px-6 lg:px-8" id="HomePage">
       <div className="max-w-5xl mx-auto">
         {/* Chart Button */}
-        <div className="flex justify-end mb-6">
+        <div className="fixed bottom-6 right-6">
           <Link to="/chart">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-2xl shadow hover:bg-blue-700 transition-all duration-300">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-2xl shadow hover:bg-blue-700 transition-all duration-300">
               📊 Show Chart
             </button>
           </Link>
@@ -49,10 +49,11 @@ function Home() {
 
         {/* Form Section */}
         <div className="grid gap-6 bg-white rounded-2xl shadow-lg p-6">
+
           {/* City Select */}
           <div className="grid gap-2">
             <label htmlFor="city" className="text-sm font-semibold text-gray-700">
-              🏙️ Select a City where you need help
+              🏙️ Select a City where you need helper
             </label>
             <select
               onChange={(e) => setCity(e.target.value)}
@@ -91,23 +92,27 @@ function Home() {
             </div>
           )}
 
-          {/* Role Pills */}
-          {area && (
-            <div
-              id="pillsBox"
-              className="flex flex-wrap justify-center gap-3 overflow-x-auto py-3 scrollbar-hide"
-            >
-              {filterdDataRole.map((role) => (
-                <Pills
-                  key={role}
-                  role={role}
-                  currentRole={currentRole}
-                  setCurrentRole={setCurrentRole}
-                />
-              ))}
-            </div>
-          )}
-
+          {/* Select Role */}
+          {area && filterdDataRole.length > 0 && (
+  <div className="grid gap-2">
+    <label htmlFor="role" className="text-sm font-semibold text-gray-700">
+      🎯 Select Role
+    </label>
+    <select
+      id="role"
+      onChange={(e) => setCurrentRole(e.target.value)}
+      defaultValue="select-role"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    >
+      <option value="select-role">Select</option>
+      {filterdDataRole.map((role) => (
+        <option key={role} value={role}>
+          {role}
+        </option>
+      ))}
+    </select>
+  </div>
+)}
           {/* Workers Cards */}
           {currentRole && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 justify-items-center">

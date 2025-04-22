@@ -6,6 +6,7 @@ import {
   FaDribbble,
   FaGithub,
 } from "react-icons/fa";
+import { GrUserWorker } from "react-icons/gr";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
@@ -15,12 +16,12 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
         {/* Left Section */}
         <div className="text-center md:text-left max-w-md">
-          <h2 className="text-4xl font-bold text-white mb-4">Get in Touch</h2>
+          <h2 className="text-4xl font-bold text-white mb-4 flex items-end gap-2  "> <GrUserWorker className="text-rose-500 text-5xl "  /> Get in Touch</h2>
           <p className="text-gray-400 mb-2">
-            Ecosystem bootstrapping learning curve lean startup disruptive.
+          WorkWhiz connects you with local workers when you need them, where you need them. 
           </p>
           <p className="text-gray-400 mb-4">
-            Marketing long tail disruptive agile development partner.
+          Whether it's a short-term task or an urgent need, we make hiring effortless and fast.
           </p>
           <div className="flex gap-3 justify-center md:justify-start mt-4">
             <Link to={"https://www.instagram.com/wanderlust__026"} className="bg-[#D7CBA4] text-black p-2 rounded">
@@ -50,7 +51,7 @@ function Footer() {
               href="https://github.com/aligasad"
               className="text-white hover:underline"
             >
-              dribbble.com/example
+              github.com/aligasad
             </a>
           </div>
           <div className="bg-[#13272A] p-6 rounded-xl shadow-lg w-64 text-center transition-transform duration-300 hover:scale-105">
