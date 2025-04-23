@@ -25,20 +25,20 @@ function Footer() {
           Whether it's a short-term task or an urgent need, we make hiring effortless and fast.
           </p>
           <div className="flex gap-3 justify-center md:justify-start mt-4">
-            <Link to={"https://www.instagram.com/wanderlust__026"} className="bg-[#D7CBA4] text-black p-2 rounded">
+            <Link to={"https://www.instagram.com/wanderlust__026"} className="bg-[#D7CBA4] hover:bg-rose-600 transition-colors text-black p-2 rounded">
               <FaInstagram />
             </Link>
             <Link
               to={"https://www.linkedin.com/in/asadalamalig/"}
-              className="bg-[#D7CBA4] text-black p-2 rounded"
+              className="bg-[#D7CBA4] hover:bg-rose-600 transition-colors text-black p-2 rounded"
             >
               <FaLinkedin />
             </Link>
 
-            <Link to={"#"} className="bg-[#D7CBA4] text-black p-2 rounded">
+            <Link to={"#"} className="bg-[#D7CBA4] hover:bg-rose-600 transition-colors text-black p-2 rounded">
               <FaPinterest />
             </Link>
-            <Link to={"#"} className="bg-[#D7CBA4] text-black p-2 rounded">
+            <Link to={"#"} className="bg-[#D7CBA4] hover:bg-rose-600 transition-colors text-black p-2 rounded">
               <FaTwitter />
             </Link>
           </div>
