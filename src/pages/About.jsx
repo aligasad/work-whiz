@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import asadImg from "../assets/asadpic.jpg";
 import { IoMailUnreadSharp } from "react-icons/io5";
 
-
 function About() {
   const members = [
     {
@@ -12,7 +11,8 @@ function About() {
       img: asadImg,
       link: "http://asadalam.info/",
       mail: "asadalam4291@gmail.com",
-      description: "I design and develop experiences that make people's lives simpler through Web and Mobile apps. ",
+      description:
+        "I design and develop experiences that make people's lives simpler through Web and Mobile apps. ",
       socials: {
         github: "https://github.com/aligasad",
         linkedin: "https://www.linkedin.com/in/asadalamalig/",
@@ -59,7 +59,7 @@ function About() {
 
   return (
     <section className="bg-gradient-to-br from-white to-blue-200 w-full px-4 py-10 bg-gray-100">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 mt-16 text-blue-700 tracking-[-2px]">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-15 mt-16 text-blue-700">
         Team <span className="ml-2 text-rose-600 ">Members</span>
       </h1>
 
@@ -68,7 +68,10 @@ function About() {
         className=" grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-4 max-w-7xl mx-auto"
       >
         {members.map((member, index) => (
-          <div key={index} className="bg-white rounded-xl p-4 text-center shadow relative">
+          <div
+            key={index}
+            className="bg-white rounded-xl p-4 text-center transition-transform duration-300 hover:scale-[1.05] shadow relative"
+          >
             {/* Profile Image */}
             <img
               src={
@@ -83,7 +86,7 @@ function About() {
               {member.name || "Mae Shaw"}
             </h2>
             <p className="text-xs text-gray-600 mb-2">
-             {member.mail || "maeshaw"}
+              {member.mail || "maeshaw"}
             </p>
 
             {/* Description */}
@@ -108,42 +111,42 @@ function About() {
               </div>
             </div>
 
-            {/* Buttons */}
-            <div className="flex gap-2 justify-center mb-4">
-              <Link to={"https://www.instagram.com/wanderlust__026"}>
-                <button className="bg-rose-800 text-white px-4 py-1.5 text-sm rounded-md hover:bg-gray-800">
-                  Follow
-                </button>
-              </Link>
-            </div>
-
-            {/* Social Media Icons */}
-            <div className="flex justify-center gap-4 text-gray-600">
-              <Link
-              to={member.socials?.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black"
-              >
-                <FaGithub size={18} />
-              </Link>
-              <Link
-              to={member.socials?.linkedin || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-700"
-              >
-                <FaLinkedin size={18} />
-              </Link>
-              <Link
-              to={member.socials?.twitter || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-500"
-              >
-                <FaTwitter size={18} />
-              </Link>
-              
+            <div className="flex justify-around items-center  ">
+              {/* Social Media Icons */}
+              <div className="flex justify-center gap-4 text-gray-600">
+                <Link
+                  to={member.socials?.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-rose-600"
+                >
+                  <FaGithub size={18} />
+                </Link>
+                <Link
+                  to={member.socials?.linkedin || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-rose-600"
+                >
+                  <FaLinkedin size={18} />
+                </Link>
+                <Link
+                  to={member.socials?.twitter || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-rose-600"
+                >
+                  <FaTwitter size={18} />
+                </Link>
+              </div>
+              {/* Buttons */}
+              <div>
+                <Link to={"https://www.instagram.com/wanderlust__026"}>
+                  <button className="bg-rose-800 text-white px-4 py-1.5 text-sm rounded-md hover:bg-gray-800">
+                    Follow
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         ))}

@@ -46,7 +46,7 @@ function Footer() {
 
         {/* Right Section */}
         <div className="flex flex-col sm:flex-row gap-6">
-          <div className="bg-[#13272A] p-6 rounded-xl shadow-lg w-64 text-center transition-transform duration-300 hover:scale-105">
+          <div className="bg-[#13272A] p-6 rounded-xl shadow-lg w-64 text-center transition transform duration-500 hover:scale-105 hover:bg-rose-800">
             <FaGithub className="text-[#D7CBA4] text-3xl mb-3 mx-auto" />
             <a
               href="https://github.com/aligasad"
@@ -55,7 +55,7 @@ function Footer() {
               github.com/aligasad
             </a>
           </div>
-          <div className="bg-[#13272A] p-6 rounded-xl shadow-lg w-64 text-center transition-transform duration-300 hover:scale-105">
+          <div className="bg-rose-800 p-6 rounded-xl shadow-lg w-64 text-center transition transform duration-500 hover:scale-105 hover:bg-[#13272A] ">
             <HiOutlineMail className="text-[#D7CBA4] text-3xl mb-3 mx-auto" />
             <a
               href="mailto:asadalam4291@gmail.com"

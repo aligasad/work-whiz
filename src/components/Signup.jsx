@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Img from "../assets/main.jpg"; // <-- this is important
+
+import axios from "axios";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function Signup() {
+  // RECIVING DATA FROM SERVER------------------
+  useEffect(()=>{
+    getUsers();
+  })
+  function getUsers() {
+    axios.get("http://localhost/signup/user/save/", data).then(function(response){
+      console.log(response.data);
+    })
+  }
+  // ****************************************************************
+
   const userDetail = {
     name: "",
     email: "",
@@ -22,15 +36,18 @@ function Signup() {
     const name = event.target.name;
     const value = event.target.value;
     setData({ ...data, [name]: value });
-    
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (data.name == "" || data.email == "" || data.username == "" || data.password == "") {
+    if (
+      data.name == "" ||
+      data.email == "" ||
+      data.username == "" ||
+      data.password == ""
+    ) {
       alert("Please Enter Detail!");
-    } 
-    else {
+    } else {
       const getData = JSON.parse(localStorage.getItem("user") || "[]");
 
       let arr = [];
@@ -45,15 +62,15 @@ function Signup() {
 
       if (existingData) {
         alert("You have already Singed Up");
-        navigate("/auth/login")
-      }
-      else if(existingUsername){
-        alert("This username have already registered, Please change it !")
-      }
-      else {
+        navigate("/auth/login");
+      } else if (existingUsername) {
+        alert("This username have already registered, Please change it !");
+      } else {
         arr.push(data);
+        // SENDING THE DATA TO localStorage------------------------
         localStorage.setItem("user", JSON.stringify(arr));
-        // localStorage.setItem("logedin", JSON.stringify(arr));
+        // SENDING THE DATA TO SERVER------------------------
+        axios.post("http://localhost/signup/user/save/", data);
         alert("Signup Successfully !");
         navigate("/auth/login");
       }
@@ -63,7 +80,7 @@ function Signup() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 to-blue-200 p-4">
       {/* Form Section */}
-      <div className="w-full md:w-1/2 max-w-md bg-white p-8 mb-7 rounded-2xl shadow-2xl">
+      <div className="w-full  md:w-[350px]   max-w-md bg-white p-8 mb-7 rounded-2xl shadow-2xl">
         {/* Brand */}
         <div className="text-center mb-6">
           <h1 className="text-4xl font-extrabold text-blue-700 tracking-wider">
@@ -121,7 +138,7 @@ function Signup() {
           </p>
 
           <button
-            type="submit"
+            // type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200 cursor-pointer"
           >
             Sign Up
@@ -136,8 +153,9 @@ function Signup() {
             Find Workers Near You Instantly
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed">
-            <span className="text-rose-600 font-semibold">WorkWhiz</span> connects you with local workers when you need them, where
-            you need them.
+            <span className="text-rose-600 font-semibold">WorkWhiz</span>{" "}
+            connects you with local workers when you need them, where you need
+            them.
           </p>
           <p className="text-gray-600 text-sm leading-relaxed">
             Whether it's a short-term task or an urgent need, we make hiring

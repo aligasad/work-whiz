@@ -4,19 +4,26 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import logo from '../assets/logo1.svg'
+import logo from "../assets/logo1.svg";
 
 function Header() {
-  
-
   const [username, setUsername] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigate = useNavigate();
 
+  const name = JSON.parse(localStorage.getItem("logedin"));
+  localStorage.setItem("current", JSON.stringify(name));
+
+  
+
   useEffect(() => {
-    const name = JSON.parse(localStorage.getItem("logedin"));
-    setUsername(name);
+    if (name) {
+      setUsername(name);
+      localStorage.removeItem("current");
+    } else {
+         
+    }
   }, []);
 
   const toggleMenu = () => {
@@ -31,18 +38,17 @@ function Header() {
 
   return (
     <header className="bg-[#0D1B1E] px-4 py-5 shadow-md fixed w-full z-10 ">
-      
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link
           to={"/"}
           className="flex items-center gap-2 text-white font-bold text-xl sm:text-2xl"
         >
-          <p className="flex items-baseline-last gap-2">
+          <h3 className="flex items-baseline-last gap-2 font-bold ">
             {/* <GrUserWorker className="text-3xl text-rose-500" /> */}
             <img src={logo} className=" h-[2.2rem] " alt="" />
-            WorkWhiz
-          </p>
+            Work<span className=" text-rose-600 font-semibold ml-[-5px] ">Whiz</span>
+          </h3>
         </Link>
 
         {/* Mobile menu button */}
@@ -81,8 +87,10 @@ function Header() {
             onClick={logout}
           >
             {username}
-            <RiLogoutBoxRLine className="text-2xl text-rose-600 " title="Your Account" />
-            
+            <RiLogoutBoxRLine
+              className="text-2xl text-rose-600 "
+              title="Your Account"
+            />
           </li>
         </ul>
       </div>

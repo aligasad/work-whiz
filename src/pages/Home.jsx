@@ -5,11 +5,11 @@ import Pills from "../components/Pills";
 import { Link } from "react-router-dom";
 
 // IMPORTING GOOGLE FONTS--------------------
-// import "@fontsource/space-grotesk/300.css";
-// import "@fontsource/space-grotesk/400.css";
-// import "@fontsource/space-grotesk/700.css";
+import "@fontsource/space-grotesk/300.css";
+import "@fontsource/space-grotesk/400.css";
+import "@fontsource/space-grotesk/700.css";
 // import "@fontsource/poppins";
-import '@fontsource/yuji-boku';
+// import '@fontsource/yuji-boku';
 
 function Home() {
   const [city, setCity] = useState("");
@@ -50,7 +50,7 @@ function Home() {
         </div>
 
         {/* Header */}
-        <h1 className="text-center text-4xl font-extrabold text-blue-800 mb-10 mt-16 tracking-[-3px]">
+        <h1 className="text-center text-4xl font-extrabold text-blue-800 mb-10 mt-16 ">
           Find a <span className=" text-[#DC143C] ">Craftsman</span> Near You
         </h1>
 

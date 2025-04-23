@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid"; // generates IDs that are statistically guaranteed to be unique—even across different devices, databases, and users—without the need for a central authority.
+import axios from "axios";
 
 const RegisterWorker = () => {
+  // FETCHING DATA FROM SERVER AND STORE IT IN formData------------------
+  const [serverData, setServerData] = useState(null);
+  useEffect(() => {
+    getWorkerDetails();
+  }, []);
+
+  function getWorkerDetails() {
+    axios
+      .get("http://localhost/registered/user/save/", formData)
+      .then(function (response) {
+        console.log(response.data);
+        setServerData(response.data);
+      });
+  }
+  console.log("SET DATA", serverData);
+  //***********************{ E N D  }***************************** */
+
   const [formData, setFormData] = useState({
     name: "",
     role: "",
@@ -38,6 +56,7 @@ const RegisterWorker = () => {
     if (!existingData) {
       const updatedWorkers = [...workers, newWorker];
       localStorage.setItem("workers", JSON.stringify(updatedWorkers));
+      axios.post("http://localhost/registered/user/save/", formData);
       setWorkers(updatedWorkers);
       setFormData({
         name: "",
@@ -81,7 +100,7 @@ const RegisterWorker = () => {
               )
             )}
             <button
-              type="submit"
+              // type="submit"
               className="w-full bg-blue-600 text-white px-4 py-2 cursor-pointer rounded-lg hover:bg-blue-700 transition-colors"
             >
               Register
@@ -126,37 +145,47 @@ const RegisterWorker = () => {
           </h1>
           <ul className=" space-y-4 text-gray-700">
             <li>
-              <strong className=" text-rose-600 ">Be Honest with Your Skills:</strong> Only list services
-              and skills you are qualified to provide. Honesty builds trust and
-              repeat work.
+              <strong className=" text-rose-600 ">
+                Be Honest with Your Skills:
+              </strong>{" "}
+              Only list services and skills you are qualified to provide.
+              Honesty builds trust and repeat work.
             </li>
             <li>
-              <strong className=" text-rose-600 ">Punctuality is a Must:</strong> Always be on time for
-              every job. If you're running late, inform the client as early as
-              possible.
+              <strong className=" text-rose-600 ">
+                Punctuality is a Must:
+              </strong>{" "}
+              Always be on time for every job. If you're running late, inform
+              the client as early as possible.
             </li>
             <li>
-              <strong className=" text-rose-600 ">Respect Every Client:</strong> Treat clients and their
-              homes with the utmost respect—polite behavior goes a long way.
+              <strong className=" text-rose-600 ">Respect Every Client:</strong>{" "}
+              Treat clients and their homes with the utmost respect—polite
+              behavior goes a long way.
             </li>
             <li>
-              <strong className=" text-rose-600 ">Pricing Transparency:</strong> Be clear and upfront about
-              your rates. No hidden fees or surprise charges after the work is
-              done.
+              <strong className=" text-rose-600 ">Pricing Transparency:</strong>{" "}
+              Be clear and upfront about your rates. No hidden fees or surprise
+              charges after the work is done.
             </li>
             <li>
-              <strong className=" text-rose-600 ">Maintain Cleanliness:</strong> Leave the worksite clean
-              and organized after the job is completed. First impressions
-              matter.
+              <strong className=" text-rose-600 ">Maintain Cleanliness:</strong>{" "}
+              Leave the worksite clean and organized after the job is completed.
+              First impressions matter.
             </li>
             <li>
-              <strong className=" text-rose-600 ">Report Problems Promptly:</strong> If any issue arises
-              during a job, report it immediately through the WorkWhiz platform.
+              <strong className=" text-rose-600 ">
+                Report Problems Promptly:
+              </strong>{" "}
+              If any issue arises during a job, report it immediately through
+              the WorkWhiz platform.
             </li>
             <li>
-              <strong className=" text-rose-600 ">Uphold WorkWhiz's Reputation:</strong> You represent our
-              platform. Keep your communication professional, and always aim to
-              exceed expectations.
+              <strong className=" text-rose-600 ">
+                Uphold WorkWhiz's Reputation:
+              </strong>{" "}
+              You represent our platform. Keep your communication professional,
+              and always aim to exceed expectations.
             </li>
           </ul>
         </div>

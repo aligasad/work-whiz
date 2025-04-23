@@ -4,18 +4,40 @@ import Img from "../assets/main.jpg"; // <-- this is important
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
 
+  useEffect(()=>{
+    getLoginUsers();
+  },[]);
+
+  function getLoginUsers() {
+    axios.get('http://localhost/login/user/save/', inputData).then(function(response){
+      console.log(response.data);
+    })
+  }
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const [msg, setMsg] = useState("");
-
   const navigate = useNavigate();
+
+  const loginDetails = {
+    username: "",
+    password: "",
+  }
+  const [inputData, setInputData] = useState(loginDetails);
+
+  
 
   const handleInput = (event) => {
     const value = event.target.value;
     const name = event.target.name;
+    // for Backend------------
+    setInputData({ ...inputData, [name]: value });
+    // for LocalStorage
     if ("username" == name) {
       setUsername(value);
     }
@@ -40,6 +62,9 @@ function Login() {
       if (foundUser) {
         alert("Login Successfully !");
         localStorage.setItem("logedin", JSON.stringify(foundUser.name));
+
+        // FOR SENDING DATA TO SERVER-------------------------------
+        // axios.post('http://localhost/login/user/save/', inputData);
         navigate("/");
       } else {
         alert("Invalid Email or Password!");
